@@ -1,0 +1,15 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Generated data and Spark output
+data/generated/
+output/
+spark-warehouse/
+metastore_db/
+derby.log
