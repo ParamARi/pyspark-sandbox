@@ -39,7 +39,7 @@ python scripts\smoke_test.py
 python scripts\generate_data.py
 
 # 5. Launch JupyterLab and open notebooks/01_getting_started.ipynb
-jupyter lab
+python -m jupyter lab
 ```
 
 > If `Activate.ps1` is blocked by execution policy, run:
