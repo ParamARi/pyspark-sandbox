@@ -58,10 +58,14 @@ and set the environment variable `HADOOP_HOME=C:\hadoop`.
 ```
 pyspark-sandbox/
 ├── data/generated/     # practice CSVs (created by generate_data.py, git-ignored)
-├── notebooks/          # your playground — start at 01_getting_started.ipynb
+├── notebooks/
+│   ├── 01_getting_started.ipynb
+│   ├── 02_aggregations_and_joins.ipynb
+│   └── 03_unstructured_to_structured.ipynb
 ├── scripts/
-│   ├── generate_data.py   # builds sample customers/products/orders datasets
-│   └── smoke_test.py      # quick "is Spark working?" check
+│   ├── generate_data.py              # customers/products/orders CSVs
+│   ├── generate_unstructured_data.py # events/logs/tickets for notebook 03
+│   └── smoke_test.py                 # quick "is Spark working?" check
 └── requirements.txt
 ```
 
@@ -85,11 +89,17 @@ do in a notebook against the generated data.
   count orders per year.
 
 ### Phase 2 — Aggregations and joins (week 2)
+- Notebook: `02_aggregations_and_joins.ipynb`
 - `groupBy` + `agg` (`sum`, `avg`, `countDistinct`), column expressions with
   `pyspark.sql.functions` (`F.col`, `F.when`, `F.round`).
 - Joins: inner/left/anti. Join orders to customers and products.
 - Exercise: revenue by product category; top 10 customers by lifetime spend;
   find orders whose customer_id doesn't exist (anti join).
+
+### Phase 2b — Unstructured → structured (after Phase 2)
+- Notebook: `03_unstructured_to_structured.ipynb`
+- Parse JSON lines, free-text logs, and semi-structured ticket fields into
+  queryable DataFrames (`from_json`, `regexp_extract`, `explode`).
 
 ### Phase 3 — Data cleaning and Spark SQL (week 3)
 - Handling nulls (`dropna`, `fillna`, `F.coalesce`), string functions
